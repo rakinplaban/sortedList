@@ -1,4 +1,5 @@
 # depslib dependency file v1.0
-1681036921 source:c:\users\rakin shahriar\desktop\sortedlist\main.cpp
+1681063733 source:c:\users\rakin shahriar\desktop\sortedlist\main.cpp
 	<iostream>
+	<cmath>
 

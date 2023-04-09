@@ -1,11 +1,11 @@
 #include <iostream>
-
+#include <cmath>
 using namespace std;
 
 
 class SortedList{
     private:
-        int arr[10] = {5,8,10};
+        int arr[10] = {5,10,15,20,25,30,35,40,45,50};
     public:
         // Find the maximum element.
         int findMax(){
@@ -64,6 +64,34 @@ class SortedList{
 
         }
 
+        //Binary Search
+        int binary_srch(int n){
+            int left = 0, right = 9, mid = 0;
+
+            while(left <= right){
+                mid = (left + right)/2;
+                if(arr[mid]==n){
+                    return mid;
+                }
+                else if(arr[mid]<n){
+                    left = mid + 1;
+                }
+                else{
+                    right = mid - 1;
+                }
+            }
+            return -1;
+        }
+
+        void delete_element(int n){
+            int pos = binary_srch(n);
+            for (int i=0;i<10;i++){
+                if(i = pos){
+                    arr[]
+                }
+            }
+        }
+
         // Display all elements.
         void display(){
             for(int i=0;i<10;i++){
@@ -77,22 +105,33 @@ class SortedList{
 int main()
 {
     SortedList l1;
-    int input;
+    int input, num;
+
 //    bool t = true;
-    cout << "1-- Insert\n2-- Search\n3-- Delete" << endl;
+    cout << "1-- Insert\n2-- Search\n3-- Delete\n4-- Exit" << endl;
 
     while(true){
         cout << "Please enter choice: ";
         cin >> input;
         switch(input){
             case 1:
-                int num;
                 cin >> num;
                 l1.insertArray(num);
                 //t = true;
                 break;
 
             case 2:
+                cin >> num;
+
+                if(l1.binary_srch(num) < 0){
+                    cout << "Sorry! Not found!" << endl;
+                }
+                else{
+                    cout << "Found at Position : " << l1.binary_srch(num) + 1 << endl;
+                }
+
+                break;
+            case 3:
                 l1.display();
                 //t = true;
                 break;
