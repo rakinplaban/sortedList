@@ -85,10 +85,22 @@ class SortedList{
 
         void delete_element(int n){
             int pos = binary_srch(n);
+            if(pos < 0){
+                cout << "No item found!" << endl;
+                return ;
+            }
+            int k,temp=0;
             for (int i=0;i<10;i++){
-                if(i = pos){
-                    arr[]
+                if(i == pos){
+                    arr[i] = arr[i+1];
+                    k = i;
+                    break;
                 }
+            }
+            for(int i = k+1;i<10;i++){
+                temp = arr[i+1];
+                arr[i] = temp;
+
             }
         }
 
@@ -108,7 +120,7 @@ int main()
     int input, num;
 
 //    bool t = true;
-    cout << "1-- Insert\n2-- Search\n3-- Delete\n4-- Exit" << endl;
+    cout << "1-- Insert\n2-- Search\n3-- Delete\n4-- Display" << endl;
 
     while(true){
         cout << "Please enter choice: ";
@@ -132,8 +144,12 @@ int main()
 
                 break;
             case 3:
-                l1.display();
+                cin >> num;
+                l1.delete_element(num);
                 //t = true;
+                break;
+            case 4:
+                l1.display();
                 break;
             default:
                 //t = false;
